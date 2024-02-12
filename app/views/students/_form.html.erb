@@ -1,0 +1,42 @@
+<div class="container justify-content-center">
+    <div class="card p-4 col-6 mx-auto my-2">
+        <%= form_with(model: student) do |form| %>
+            <div class="mb-3">
+                <%= form.label :name, class: "form-label" %>
+                <%= form.text_field :name, class: "form-control", placeholder: "Enter student name" %>
+            </div>
+            <div class="mb-3">
+                <%= form.label :address, class: "form-label" %>
+                <%= form.text_field :address, class: "form-control", placeholder: "Enter student address" %>
+            </div>
+            <div class="mb-3 d-flex">
+                <div class="px-1">
+                    <%= form.label :age, class: "form-label" %>
+                    <%= form.number_field :age, class: "form-control", placeholder: "Enter student age" %>
+                </div>
+                <div class="px-1">
+                    <%= form.label "class", class: "form-label" %>
+                    <%= form.number_field :std, class: "form-control", placeholder: "Enter class" %>
+                </div>
+            </div>
+            <div class="mb-3">
+                <%= form.label :school, class: "form-label" %>
+                <%= form.text_field :school, class: "form-control", placeholder: "Enter school" %>
+            </div>
+            <div class="mb-3">
+                <%= form.label :medium, class: "form-label" %>
+                <%= form.select :medium, [['Bengali', 'bengali'], ['English', 'english'], ['Hindi', 'hindi']], { include_blank: :medium }, class: 'form-select form-select-md', aria: { label: 'Small select example' } %>
+            </div>
+            <div class="mb-3">
+                <%= form.label :email, class: "form-label" %>
+                <%= form.email_field :email, class: "form-control", placeholder: "Enter email" %>
+            </div>
+            <div class="mb-3">
+                <%= form.label :phone, class: "form-label" %>
+                <%= form.number_field :phone, class: "form-control", placeholder: "Enter phone number" %>
+            </div>
+        <%= form.submit "Submit", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>
+  
