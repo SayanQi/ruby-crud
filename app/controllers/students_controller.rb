@@ -15,9 +15,9 @@ class StudentsController < ApplicationController
 
   def update
     @student = Student.find(params[:id])
-
+    @student.update(students_param)
     if @student.update(students_param)
-      # flash[:notice] = "Success message"
+      flash[:success] = "Success message"
       redirect_to students_path
     else
       redirect_to students_path
@@ -26,9 +26,9 @@ class StudentsController < ApplicationController
 
   def destroy
     @student = Student.find(params[:id])
-
+    @student.destroy
     if @student.destroy
-      # flash[:notice] = "Success message"
+      flash[:success] = "Success message"
       redirect_to students_path
     else
       redirect_to students_path
@@ -42,7 +42,7 @@ class StudentsController < ApplicationController
   def create
     @student = Student.create(students_param)
     if @student.save
-      flash[:notice] = "Success message"
+      flash[:success] = "Success message"
       redirect_to students_path
     else
       redirect_to students_path
