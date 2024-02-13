@@ -1,4 +1,13 @@
 <%= render partial: 'navbar' %>
-<h1 class="text-center my-2">Create New Student</h1>
-<%= render partial: 'form', locals: { student: @student } %>
+<% flash.each do |key, value| %>
+<div class="alert alert-<%= key %> alert-dismissible fade show" role="alert">
+  <strong> <%= value %></strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<% end %>
+<div class="container">
+    <h1 class="text-center my-2">Create New Student</h1>
+    <%= render partial: 'form', locals: { student: @student } %>
+</div>
+
 

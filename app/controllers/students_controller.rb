@@ -17,22 +17,30 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     @student.update(students_param)
     if @student.update(students_param)
-      flash[:success] = "Success message"
+      flash[:success] = "Successfully Updated"
       redirect_to students_path
     else
+      flash[:danger] = "Failed to Update user: #{error_messages(@user)}"
       redirect_to students_path
     end
+    rescue StandardError => e
+      flash[:danger] = "An error occurred: #{e.message.to_s}"
+    redirect_to students_path
   end
 
   def destroy
     @student = Student.find(params[:id])
     @student.destroy
     if @student.destroy
-      flash[:success] = "Success message"
+      flash[:success] = "Successfully Deleted"
       redirect_to students_path
     else
+      flash[:danger] = "Failed to Delete user: #{error_messages(@user)}"
       redirect_to students_path
     end
+  rescue StandardError => e
+    flash[:danger] = "An error occurred: #{e.message.to_s}"
+    redirect_to students_path
   end
 
   def edit
@@ -40,13 +48,21 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.create(students_param)
+    @student = Student.new(students_param)
     if @student.save
-      flash[:success] = "Success message"
+      flash[:success] = "Successfully Created"
       redirect_to students_path
     else
-      redirect_to students_path
+
+      # binding.pry
+
+      flash[:danger] = "Failed to create user: #{@student.errors.messages }"
+      # redirect_to new_student_path
+      render :new, status: :unprocessable_entity
     end
+    # rescue StandardError => e
+    #   flash[:danger] = "An error occurred: #{e.message.to_s}"
+    #   redirect_to students_path
   end
 
   private
