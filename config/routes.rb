@@ -21,5 +21,5 @@ Rails.application.routes.draw do
   delete 'teachers/:id', to: 'teachers#delete'
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "students#index"
 end

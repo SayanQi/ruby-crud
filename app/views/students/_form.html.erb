@@ -3,25 +3,25 @@
         <%= form_with(model: student) do |form| %>
             <div class="mb-3">
                 <%= form.label :name, class: "form-label" %>
-                <%= form.text_field :name, class: "form-control", placeholder: "Enter student name" %>
+                <%= form.text_field :name, class: "form-control",required: true , placeholder: "Enter student name"%>
             </div>
             <div class="mb-3">
                 <%= form.label :address, class: "form-label" %>
-                <%= form.text_field :address, class: "form-control", placeholder: "Enter student address" %>
+                <%= form.text_field :address, class: "form-control",required: true , placeholder: "Enter student address" %>
             </div>
             <div class="mb-3 d-flex">
                 <div class="px-1">
                     <%= form.label :age, class: "form-label" %>
-                    <%= form.number_field :age, class: "form-control", placeholder: "Enter student age" %>
+                    <%= form.number_field :age, class: "form-control",required: true , placeholder: "Enter student age" %>
                 </div>
                 <div class="px-1">
                     <%= form.label "class", class: "form-label" %>
-                    <%= form.number_field :std, class: "form-control", placeholder: "Enter class" %>
+                    <%= form.number_field :std, class: "form-control",required: true , placeholder: "Enter class" %>
                 </div>
             </div>
             <div class="mb-3">
                 <%= form.label :school, class: "form-label" %>
-                <%= form.text_field :school, class: "form-control", placeholder: "Enter school" %>
+                <%= form.text_field :school, class: "form-control",required: true , placeholder: "Enter school" %>
             </div>
             <div class="mb-3">
                 <%= form.label :medium, class: "form-label" %>
@@ -29,11 +29,11 @@
             </div>
             <div class="mb-3">
                 <%= form.label :email, class: "form-label" %>
-                <%= form.email_field :email, class: "form-control", placeholder: "Enter email" %>
+                <%= form.email_field :email, class: "form-control",required: true , placeholder: "Enter email" %>
             </div>
             <div class="mb-3">
                 <%= form.label :phone, class: "form-label" %>
-                <%= form.number_field :phone, class: "form-control", placeholder: "Enter phone number" %>
+                <%= form.number_field :phone, class: "form-control",required: true , placeholder: "Enter phone number" %>
             </div>
         <%= form.submit "Submit", class: "btn btn-primary" %>
         <% end %>
